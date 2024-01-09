@@ -6,4 +6,5 @@ edition = "2021"
 [dependencies]
 dioxus = "0.4.3"
 dioxus-free-icons = { version = "0.7.0", features = ["feather"] }
+dioxus-router = { version = "0.4.3", features = ["web"] }
 dioxus-web = "0.4.3"

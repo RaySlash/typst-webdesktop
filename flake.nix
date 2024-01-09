@@ -17,11 +17,8 @@
       ];
 
       systems = import inputs.systems;
-
       perSystem = { config, self', inputs', pkgs, system, ... }:
       let
-        cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
-        msrv = cargoToml.package.rust-version;
         rust-toolchain = (pkgs.rust-bin.fromRustupToolchainFile ./toolchain.toml);
 
         buildDeps = with pkgs; [
@@ -38,7 +35,6 @@
           dioxus-cli
           webkitgtk
         ];
-
 
         mkDevShell = rust-toolchain: pkgs.mkShell {
           LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath buildDeps}:$LD_LIBRARY_PATH";

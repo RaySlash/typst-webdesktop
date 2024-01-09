@@ -8,9 +8,6 @@ target/
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
 
-# Dioxus htmls
-dist/
-
 # Nix direnv and nix build
 .direnv/
 result
