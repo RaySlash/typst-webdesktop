@@ -1,8 +1,9 @@
 [package]
-name = "typst-rs"
+name = "typstrs"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 dioxus = "0.4.3"
+dioxus-free-icons = { version = "0.7.0", features = ["feather"] }
 dioxus-web = "0.4.3"

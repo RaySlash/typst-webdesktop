@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+:root {
+	--bg: #1d2021;
+	--bg-soft: #32302f;
+	--text: #f9f5d7;
+}
+
+body {
+	background-color: var(--bg); 
+	color : var(--text);
+	font-size: 14px;
+}
+
+.header {
+	background-color: var(--bg-soft);
+	padding: 0.5rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 40vw;
+}
+
+@media screen and (max-width: 1400px) {
+	.header {
+		gap: 35vw;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.header {
+		gap: 25vw;
+	}
+}

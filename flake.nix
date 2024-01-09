@@ -22,10 +22,7 @@
       let
         cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
         msrv = cargoToml.package.rust-version;
-        rust-toolchain = (pkgs.rust-bin.stable.latest.default).override {
-          extensions = [ "rust-src" "rust-analyzer" "rustfmt" "clippy" ];
-          targets = [  "x86_64-unknown-linux-gnu" "wasm32-unknown-unknown" ];
-        };
+        rust-toolchain = (pkgs.rust-bin.fromRustupToolchainFile ./toolchain.toml);
 
         buildDeps = with pkgs; [
           pkg-config

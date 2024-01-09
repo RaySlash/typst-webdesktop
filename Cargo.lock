@@ -232,6 +232,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2ea539174bb236e0e7dc9c12b19b88eae3cb574dedbd0252a2d43ea7e6de13e2"
 
 [[package]]
+name = "dioxus-free-icons"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ba0f39d8cc51f55139246e3527a97153bbc6764bfe8ecf0b2505e7c6b7650580"
+dependencies = [
+ "dioxus",
+]
+
+[[package]]
 name = "dioxus-hooks"
 version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -867,10 +876,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "typst-rs"
+name = "typstrs"
 version = "0.1.0"
 dependencies = [
  "dioxus",
+ "dioxus-free-icons",
  "dioxus-web",
 ]
 
