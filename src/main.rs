@@ -1,5 +1,5 @@
-use typstrs::*; 
+use typstrs::*;
 
 pub fn main() {
-    dioxus_web::launch(app);
+    dioxus_web::launch(App);
 }

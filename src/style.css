@@ -18,6 +18,10 @@ body {
 	font-size: 14px;
 }
 
+.navcontainer {
+	height: 20%;
+}
+
 .header {
 	background-color: var(--bg-soft);
 	padding: 0.5rem;
@@ -27,26 +31,25 @@ body {
 	justify-content: space-between;
 }
 
-.bodycontainer {
-	width: 100%;	
-	background-color: grey;
+.git {
+	color: var(--text);
 }
 
 .workspace {
+	height: 80%;
 	display: flex;
+	justify-content: space-evenly;
 }
 
 .toolbar, .codearea, .previewarea {
-	height: 94vh;
-	background-color: red;
 }
 
 .toolbar {
-	max-width: 5vw; 
+	background-color: red;
 }
 
 .codearea, .previewarea {
-	max-width: 45vw;
+	background-color: blue;
 }
 
 
