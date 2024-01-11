@@ -63,6 +63,8 @@ pub fn ToolBar(cx: Scope) -> Element {
 }
 
 pub fn Navbar(cx: Scope) -> Element {
+    use_shared_state_provider(cx, || Title(false));
+
     render!(rsx! {
           div { class: "navcontainer",
             header { class: "header",
@@ -72,7 +74,7 @@ pub fn Navbar(cx: Scope) -> Element {
                           icon: fi_icons::FiArrowDown,
                        }
               },
-              // TitleToggle {},
+              TitleToggle {},
               div { class: "navtool",
                     DarkModeToggle {},
                     a { class: "git",
@@ -88,23 +90,22 @@ pub fn Navbar(cx: Scope) -> Element {
     })
 }
 
-// Breaks entire site -- TitleToggle
-// Suspect that the issue is with labels properly showing up with <p>
+// The title doesn't switch but currently doesnt break layout
 pub fn TitleToggle(cx: Scope) -> Element {
     let collapsed_state = use_shared_state::<Title>(cx).unwrap();
     let mut collapsed = collapsed_state.read().0;
     let title = if collapsed {
-        "p { 'Typst Desktop' }"
+        "Typst Desktop"
     } else {
         "
-        p { 'Typst Desktop' }
-        p { 'An application written in Rust (Dioxius)' }
+        Typst Desktop
+        An application written in Rust (Dioxius)
     "
     };
 
     render! {rsx!(
       label {
-        label {
+        label { class: "title",
           onclick: move |_| {
             collapsed = !collapsed;
             collapsed_state.write().0 = collapsed;
