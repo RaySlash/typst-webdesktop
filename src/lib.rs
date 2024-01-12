@@ -15,57 +15,57 @@ struct Title(bool);
 
 pub fn App(cx: Scope) -> Element {
     use_shared_state_provider(cx, || DarkMode(false));
-    cx.render(rsx! {
+    render! {
       style { include_str!("./style.css") }
       Navbar {},
       Workspace {},
-    })
+    }
 }
 
 pub fn Workspace(cx: Scope) -> Element {
-    render!(rsx! {
+    render! {
         div { class: "workspace",
           ToolBar {},
           CodeArea {},
           PreviewArea {},
         }
-    })
+    }
 }
 
 pub fn PreviewArea(cx: Scope) -> Element {
-    render!(rsx! {
+    render! {
       div { class: "previewarea",
         button { class: "previewbut",
           "Stranger"
         }
       }
-    })
+    }
 }
 
 pub fn CodeArea(cx: Scope) -> Element {
-    render!(rsx! {
+    render! {
       div { class: "codearea",
         button { class: "codebut",
           "There"
         }
       }
-    })
+    }
 }
 
 pub fn ToolBar(cx: Scope) -> Element {
-    render!(rsx! {
+    render! {
       div { class: "toolbar",
         button { class: "toolbut",
           "Hi"
         }
       }
-    })
+    }
 }
 
 pub fn Navbar(cx: Scope) -> Element {
     use_shared_state_provider(cx, || Title(false));
 
-    render!(rsx! {
+    render! {
           div { class: "navcontainer",
             header { class: "header",
               a { class: "burger",
@@ -87,10 +87,9 @@ pub fn Navbar(cx: Scope) -> Element {
               }
             }
           }
-    })
+    }
 }
 
-// The title doesn't switch but currently doesnt break layout
 pub fn TitleToggle(cx: Scope) -> Element {
     let collapsed_state = use_shared_state::<Title>(cx).unwrap();
     let mut collapsed = collapsed_state.read().0;
@@ -103,17 +102,16 @@ pub fn TitleToggle(cx: Scope) -> Element {
     "
     };
 
-    render! {rsx!(
-      label {
-        label { class: "title",
+    render! {
+      button {
+         class: "title",
           onclick: move |_| {
             collapsed = !collapsed;
             collapsed_state.write().0 = collapsed;
           },
-        },
         title,
-      }
-    )}
+        },
+    }
 }
 
 pub fn DarkModeToggle(cx: Scope) -> Element {
@@ -125,7 +123,7 @@ pub fn DarkModeToggle(cx: Scope) -> Element {
         "color: var(--text)"
     };
 
-    render! { rsx!(
+    render! {
       label {
         style: "{style}",
         label { class: "darkmode",
@@ -138,15 +136,15 @@ pub fn DarkModeToggle(cx: Scope) -> Element {
                  icon: fi_icons::FiMoon,
               }
         },
-      })
+      }
     }
 }
 
 pub fn About(cx: Scope) -> Element {
-    render!(rsx! {
+    render! {
         p {
           b {"Typyst-Webdesktop"}
           "An open source typst desktop appmade in Rust."
         }
-    })
+    }
 }

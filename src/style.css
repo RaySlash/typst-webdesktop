@@ -24,6 +24,7 @@ body {
 
 .header {
 	background-color: var(--bg-soft);
+	border: 0;
 	padding: 0.5rem;
 	margin-bottom: 0.5rem;
 	display: flex;
@@ -36,7 +37,11 @@ body {
 	padding: 0.5rem 0;
 }
 
-.git {
+.git, .title {
+	background-color: var(--bg-soft);
+	border: 0;
+	border-style: none;
+	font-weight: bold;
 	color: var(--text);
 }
 
