@@ -34,8 +34,8 @@ pub fn Workspace(cx: Scope) -> Element {
 
 pub fn PreviewArea(cx: Scope) -> Element {
     render! {
-      div { class: "previewarea",
-        button { class: "previewbut",
+      div { class: "preview-container",
+        label { class: "previewbox",
           "Preview"
         }
       }
@@ -44,8 +44,8 @@ pub fn PreviewArea(cx: Scope) -> Element {
 
 pub fn CodeArea(cx: Scope) -> Element {
     render! {
-      div { class: "codearea",
-        button { class: "codebut",
+      div { class: "code-container",
+        input { class: "codebox",
           "Code"
         }
       }
@@ -55,8 +55,39 @@ pub fn CodeArea(cx: Scope) -> Element {
 pub fn ToolBar(cx: Scope) -> Element {
     render! {
       div { class: "toolbar",
-        button { class: "toolbut",
-          "Toolbar"
+        div { class: "topicons",
+          button {
+            Icon { width: 30,
+                   height: 30,
+                   icon: fi_icons::FiEdit3,
+            }
+          }
+          button {
+            Icon { width: 30,
+                   height: 30,
+                   icon: fi_icons::FiFile,
+            }
+          }
+          button {
+            Icon { width: 30,
+                   height: 30,
+                   icon: fi_icons::FiDroplet,
+            }
+          }
+          button {
+            Icon { width: 30,
+                   height: 30,
+                   icon: fi_icons::FiRefreshCw,
+            }
+          }
+        }
+        div { class: "bottomicons",
+          button { 
+            Icon { width: 30,
+                   height: 30,
+                   icon: fi_icons::FiTool,
+            }
+          }
         }
       }
     }
@@ -94,12 +125,9 @@ pub fn TitleToggle(cx: Scope) -> Element {
     let collapsed_state = use_shared_state::<Title>(cx).unwrap();
     let mut collapsed = collapsed_state.read().0;
     let title = if collapsed {
-        "Typst Desktop"
+        "Typst Desktop | An application written in Rust (Dioxus)"
     } else {
-        "
-        Typst Desktop
-        An application written in Rust (Dioxius)
-    "
+        "Typst Desktop"
     };
 
     render! {
