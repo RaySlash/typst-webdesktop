@@ -36,7 +36,7 @@ pub fn PreviewArea(cx: Scope) -> Element {
     render! {
       div { class: "previewarea",
         button { class: "previewbut",
-          "Stranger"
+          "Preview"
         }
       }
     }
@@ -46,7 +46,7 @@ pub fn CodeArea(cx: Scope) -> Element {
     render! {
       div { class: "codearea",
         button { class: "codebut",
-          "There"
+          "Code"
         }
       }
     }
@@ -56,7 +56,7 @@ pub fn ToolBar(cx: Scope) -> Element {
     render! {
       div { class: "toolbar",
         button { class: "toolbut",
-          "Hi"
+          "Toolbar"
         }
       }
     }
@@ -124,19 +124,17 @@ pub fn DarkModeToggle(cx: Scope) -> Element {
     };
 
     render! {
-      label {
-        style: "{style}",
-        label { class: "darkmode",
-              onclick: move |_| {
-                dark_mode = !dark_mode;
-                dark_mode_state.write().0 = dark_mode;
-              },
-              Icon { width: 30,
-                 height: 30,
-                 icon: fi_icons::FiMoon,
-              }
-        },
-      }
+        button { class: "darkmode",
+                 style: "{style}",
+                 onclick: move |_| {
+                   dark_mode = !dark_mode;
+                   dark_mode_state.write().0 = dark_mode;
+                 },
+                 Icon { width: 30,
+                   height: 30,
+                   icon: fi_icons::FiMoon,
+                 }
+        }
     }
 }
 

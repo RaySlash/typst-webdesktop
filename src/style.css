@@ -10,16 +10,14 @@
 	--bg: #1d2021;
 	--bg-soft: #32302f;
 	--text: #f9f5d7;
+	--white: #fbf1c7;
+	--grey: #3c3836;
 }
 
 body {
 	background-color: var(--bg); 
 	color : var(--text);
 	font-size: 14px;
-}
-
-.navcontainer {
-	height: 20%;
 }
 
 .header {
@@ -46,20 +44,39 @@ body {
 }
 
 .workspace {
-	height: 80%;
+	margin: 0 0.5rem;
 	display: flex;
 	justify-content: space-evenly;
-}
-
-.toolbar, .codearea, .previewarea {
-}
-
-.toolbar {
-	background-color: red;
+	align-items: center;
+	gap: 0.5rem;
+	height: 92vh;
 }
 
 .codearea, .previewarea {
-	background-color: blue;
+	width: 50vw;
+	display: flex;
+	padding: 1.5rem;
+	border-radius: 1rem;
+	min-height: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.codearea {
+	background-color: var(--grey);
+}
+
+.toolbar {
+	width: 5vw;
+	min-height: 100%;
+	background-color: var(--text);
+	display: flex;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.8);
+}
+
+.previewarea {
+	background-color: var(--white);
 }
 
 
